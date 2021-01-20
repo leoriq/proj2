@@ -9,6 +9,6 @@ routes.get('/todos', PostController.index);
 routes.post('/todos', PostController.store);
 routes.delete('/todos/:id', PostController.delete);
 
-routes.get('/todos/:id', DoneController.store);
+routes.post('/todos/:id', DoneController.store);
 
 module.exports = routes;
