@@ -8,6 +8,8 @@ module.exports = {
 
         await todo.save();
 
-        return res.json({ "ok": "ok" });
+        req.io.emit('done', todo);
+
+        return res.json(todo);
     }
 }

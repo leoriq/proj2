@@ -2,7 +2,7 @@ const Todo = require('../models/Todo');
 
 module.exports = {
   async index(request, response) {
-    const todos = await Todo.find().sort('-createAt');
+    const todos = await Todo.find().sort('-updatedAt');
 
     return response.json(todos);
   },
@@ -10,7 +10,9 @@ module.exports = {
   async store(request, response) {
     const todo  = request.body;
 
-    const todoItem = await Todo.create({ todo });
+    const todoItem = await Todo.create({ todo:"oi" });
+
+    request.io.emit('todoItem', todoItem);
 
     return response.json(todoItem);
   },
@@ -19,6 +21,8 @@ module.exports = {
     const { id } = request.params;
 
     const todoDelete = await Todo.findByIdAndDelete(id);
+
+    request.io.emit('delete', todoDelete);
 
     return response.json(todoDelete);
   }
