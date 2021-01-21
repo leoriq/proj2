@@ -4,7 +4,7 @@ const TodoSchema = new mongoose.Schema({
     todo: String,
     done: {
         type: Boolean,
-        default: false
+        default: false,
     },
 }, {
     timestamps: true,

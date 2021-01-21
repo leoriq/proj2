@@ -15,6 +15,7 @@ const io = require('socket.io')(server, {
 
 mongoose.connect('mongodb+srv://unectproj2:unectproj2@cluster0.xi8yy.mongodb.net/<dbname>?retryWrites=true&w=majority', {
     useNewUrlParser: true,
+    useUnifiedTopology: true
 })
 
 app.use((request, response, next) => {

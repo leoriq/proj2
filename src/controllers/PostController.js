@@ -8,11 +8,11 @@ module.exports = {
   },
 
   async store(request, response) {
-    const todo  = request.body;
+    const { todo } = request.body;
 
-    const todoItem = await Todo.create({ todo:"oi" });
-
-    request.io.emit('todoItem', todoItem);
+    const todoItem = await Todo.create({
+      todo,
+    });
 
     return response.json(todoItem);
   },
