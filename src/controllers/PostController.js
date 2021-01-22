@@ -8,9 +8,11 @@ module.exports = {
   },
 
   async store(request, response) {
-    const { todo } = request.params;
+    const { todo } = request.body;
 
-    const todoItem = await Todo.create({ todo });
+    const todoItem = await Todo.create({
+      todo,
+    });
 
     return response.json(todoItem);
   },
