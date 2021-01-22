@@ -14,6 +14,8 @@ module.exports = {
       todo,
     });
 
+    request.io.emit('todoItem', todoItem);
+
     return response.json(todoItem);
   },
 
